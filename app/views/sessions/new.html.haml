@@ -17,15 +17,16 @@
       %input.button{:type => "submit", :value => "Log in"}
       %a.forgot-password{:href => "/forgot_password"} Forgot Password
 
-- content_for :bottom do
-  #login-services.bottom-block
-    %h4 Use Your Existing Twitter Account
-    .login-service
-      %p Sign in with:
-    .twitter.login-service
-      %a.button{:href=>'/auth/twitter'}
-        %span.icon.twitter
-        Twitter
+- if !ENV["CONSUMER_KEY"].nil? && !ENV["CONSUMER_SECRET"].nil?
+  - content_for :bottom do
+    #login-services.bottom-block
+      %h4 Use Your Existing Twitter Account
+      .login-service
+        %p Sign in with:
+      .twitter.login-service
+        %a.button{:href=>'/auth/twitter'}
+          %span.icon.twitter
+          Twitter
 
 - content_for :javascript do
   :javascript

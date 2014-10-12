@@ -14,10 +14,11 @@
 
         #signup
           %h3 Sign in with
-          .twitter.option
-            %a.button{:href=>'/auth/twitter'}
-              %span.icon.twitter
-              Twitter
+          - if !ENV["CONSUMER_KEY"].nil? && !ENV["CONSUMER_SECRET"].nil?
+            .twitter.option
+              %a.button{:href=>'/auth/twitter'}
+                %span.icon.twitter
+                Twitter
           .username.option
             %a.button{:href=>'/login'}
               %span.icon.comment
